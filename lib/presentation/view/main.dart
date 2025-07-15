@@ -64,6 +64,15 @@ class _TodoScreenState extends State<TodoScreen> {
     });
   }
 
+  void _editTodo(int index, int? oldIndex) {
+    if(index == oldIndex){
+      context.read<TodoViewModel>().setEditingIndex(null);
+    }else{
+      context.read<TodoViewModel>().setEditingIndex(index);
+    }
+  }
+
+
   void _addTodo() {
     final viewModel = context.read<TodoViewModel>();
     final text = _todoController.text.trim();
@@ -75,8 +84,9 @@ class _TodoScreenState extends State<TodoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final todos = context.watch<TodoViewModel>().todos;
-
+    final viewModel = context.watch<TodoViewModel>();
+    final todos = viewModel.todos;
+    final editingIndex = viewModel.editingIndex;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -86,7 +96,22 @@ class _TodoScreenState extends State<TodoScreen> {
             Expanded(
               child: ListView.builder(
                 itemCount: todos.length,
-                itemBuilder: (_, index) => TodoItem(todo: todos[index]),
+                itemBuilder: (_, index) => TodoItem(
+                  todo: todos[index].title,
+                  isDone: todos[index].isDone,
+                  onIsDone: (isDone) {
+                    viewModel.updateIsDone(todos[index].key, isDone!);
+                  },
+                  onDelete: () => {
+                    viewModel.setEditingIndex(null),
+                    viewModel.removeTodoByKey(todos[index].key)
+                  },
+                  isEditing: editingIndex == index,
+                  onTap: () => _editTodo(index, editingIndex),
+                  onChanged: (newValue) {
+                    viewModel.updateTodoByKey(index, newValue);
+                  },
+                ),
               ),
             ),
             TodoAdd(todoController: _todoController, onAddPressed: _addTodo),
@@ -95,6 +120,5 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
       ),
     );
-
   }
 }

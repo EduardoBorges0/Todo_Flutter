@@ -20,20 +20,26 @@ class TodoRepositoriesImpl extends TodoRepositories{
   }
 
   @override
-  Future<List<String>> getTodos() async {
+  Future<List<Todo>> getTodos() async {
     final box = await _getBox();
-    return box.values.map((todo) => todo.title).toList();
+    return box.values.toList();
   }
 
   @override
-  Future<void> removeTodo(String todo) {
-    throw UnimplementedError();
+  Future<void> removeTodoByKey(int key) {
+    final box = _getBox();
+    return box.then((b) => b.delete(key));
   }
 
   @override
-  Future<void> updateTodo(String oldTodo, String newTodo) {
-    // TODO: implement updateTodo
-    throw UnimplementedError();
+  Future<void> updateTodoByKey(int key, String newTodo) async {
+    final box = await _getBox();
+    return box.put(key, Todo(title: newTodo));
   }
-  
+
+  @override
+  Future<void> updateIsDoneByKey(int key, bool isDone) async {
+    final box = await _getBox();
+    return box.put(key, Todo(title: box.get(key)!.title, isDone: isDone));
+  }
 }

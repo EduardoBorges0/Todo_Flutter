@@ -21,9 +21,7 @@ class TodoAdd extends StatelessWidget {
           width: 250,
           child: TextField(
             controller: _todoController,
-
             decoration: InputDecoration(
-
               labelText: 'Digite algo',
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 18,
