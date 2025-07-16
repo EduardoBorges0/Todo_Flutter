@@ -1,6 +1,7 @@
-# 🛒Todo - Flutter Dart
+# 📝 Todo - Flutter Dart
 
 Esse projeto foi desenvolvido para ter uma visão geral do Flutter e suas bibliotecas.
+
 ## 🚀 Tecnologias utilizadas
 
 - Flutter Dart
