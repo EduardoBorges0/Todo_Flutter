@@ -31,15 +31,21 @@ Antes de rodar o projeto, você precisará ter instalado na sua máquina:
    No Linux, adicione a linha `export PATH="$PATH:/caminho/para/flutter/bin"` no seu arquivo
    `.bashrc` ou `.zshrc`. </br>
 
-2. Clone o repositório
+2. Clone o repositório </br>
+   ```
    git clone https://github.com/EduardoBorges0/Todo_Flutter.git
-   cd seu-repositorio
+   cd Todo_Flutter
+   ```
 
-3. Sincronize as dependências do projeto:
-   flutter pub get
+3. Sincronize as dependências do projeto: </br>
+```
+flutter pub get
+```
 
-4. Execute o projeto:
-   flutter run
+4. Execute o projeto: </br>
+```
+flutter run
+```
 
 ---
 
