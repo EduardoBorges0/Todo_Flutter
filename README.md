@@ -28,11 +28,12 @@ Antes de rodar o projeto, você precisará ter instalado na sua máquina:
 
 1. Adicione o Flutter ao PATH do seu sistema operacional. </br>
    No Windows, você pode fazer isso através das configurações avançadas do sistema. </br>
-   No Linux, adicione a linha `export PATH="$PATH:/caminho/para/flutter/bin"` no seu arquivo `.bashrc` ou `.zshrc`. </br>
+   No Linux, adicione a linha `export PATH="$PATH:/caminho/para/flutter/bin"` no seu arquivo
+   `.bashrc` ou `.zshrc`. </br>
 
 2. Clone o repositório
-  git clone https://github.com/EduardoBorges0/Todo_Flutter.git
-  cd seu-repositorio
+   git clone https://github.com/EduardoBorges0/Todo_Flutter.git
+   cd seu-repositorio
 
 3. Sincronize as dependências do projeto:
    flutter pub get
@@ -42,12 +43,26 @@ Antes de rodar o projeto, você precisará ter instalado na sua máquina:
 
 ---
 
+🧩 Estrutura do Projeto: </br>
+
+```
+├── data
+│   ├── model
+│   └── repositoriesImpl
+├── domain
+│   └── repositories
+└── presentation
+├── view
+└── viewModel
+```
+
 📌 Objetivos do Projeto: </br>
- - Entender a estrutura de projetos Flutter escaláveis</br>
- - Praticar armazenamento offline com Hive</br>
- - Implementar uma arquitetura desacoplada (Clean Architecture)</br>
- - Aplicar gerenciamento de estado com Provider</br>
- - Exercitar boas práticas de desenvolvimento como SOLID e separação de responsabilidades</br>
+
+- Entender a estrutura de projetos Flutter escaláveis</br>
+- Praticar armazenamento offline com Hive</br>
+- Implementar uma arquitetura desacoplada (Clean Architecture)</br>
+- Aplicar gerenciamento de estado com Provider</br>
+- Exercitar boas práticas de desenvolvimento como SOLID e separação de responsabilidades</br>
 
 👨‍💻 Autor  </br>
 Desenvolvido por Eduardo Borges </br>
